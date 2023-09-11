@@ -5,7 +5,7 @@
 namespace HelpingHands.Data.Migrations
 {
     /// <inheritdoc />
-    public partial class initial : Migration
+    public partial class @new : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

@@ -12,9 +12,12 @@ builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 
 //added AddRoles<IdentityRole>()
-builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = false)
-    .AddRoles<IdentityRole>()
-    .AddEntityFrameworkStores<ApplicationDbContext>();
+//AddDefaultIdentity - AddIdentity and added IdentityRole
+builder.Services.AddIdentity<IdentityUser, IdentityRole>(options => options.SignIn.RequireConfirmedAccount = false)
+    .AddEntityFrameworkStores<ApplicationDbContext>()
+    .AddDefaultUI()
+    .AddDefaultTokenProviders();
+
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
@@ -59,23 +62,23 @@ using (var scope = app.Services.CreateScope())
 }
 
 
-using (var scope = app.Services.CreateScope())
-{
-    var userManager = scope.ServiceProvider.GetRequiredService<UserManager<IdentityUser>>();
-    string email = "admin@helpinghands.com";
-    string password = "admin12345!";
+//using (var scope = app.Services.CreateScope())
+//{
+//    var userManager = scope.ServiceProvider.GetRequiredService<UserManager<IdentityUser>>();
+//    string email = "admin@helpinghands.com";
+//    string password = "admin12345!";
 
-    if (await userManager.FindByEmailAsync(email) == null)
-    {
-        var user = new IdentityUser();
-        user.UserName = email;
-        user.Email = email;
+//    if (await userManager.FindByEmailAsync(email) == null)
+//    {
+//        var user = new IdentityUser();
+//        user.UserName = email;
+//        user.Email = email;
 
-        await userManager.CreateAsync(user, password);
+//        await userManager.CreateAsync(user, password);
 
-        await userManager.AddToRoleAsync(user, "Admin");
-    }
-}
+//        await userManager.AddToRoleAsync(user, "Admin");
+//    }
+//}
 
 
 app.Run();
