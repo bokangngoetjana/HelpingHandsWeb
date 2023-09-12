@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using HelpingHands.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace HelpingHands.Data
@@ -9,5 +10,6 @@ namespace HelpingHands.Data
             : base(options)
         {
         }
+        public DbSet<City> City { get; set; }
     }
 }
