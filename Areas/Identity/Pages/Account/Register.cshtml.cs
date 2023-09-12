@@ -132,6 +132,10 @@ namespace HelpingHands.Areas.Identity.Pages.Account
 
         public async Task OnGetAsync(string returnUrl = null)
         {
+            if(User.Identity.IsAuthenticated && !User.IsInRole("Admin"))
+            {
+                Response.Redirect("/");
+            }
             ReturnUrl = returnUrl;
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
 
