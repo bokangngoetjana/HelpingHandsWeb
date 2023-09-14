@@ -94,6 +94,61 @@ namespace HelpingHands.Areas.Identity.Pages.Account
             public string Password { get; set; }
 
 
+            /// <summary>
+            /// firstname
+            /// lastname
+            /// gender
+            /// id number
+            /// emergency contact name & number
+            /// DoB
+            /// Suburb ID
+            /// </summary>
+            /// 
+
+            [Required]
+            [Display(Name = "First Name")]
+            [StringLength(50, ErrorMessage = "First name must not exceed 50 characters"), MinLength(6)]
+            public string FirstName { get; set; }
+            
+
+            [Required]
+            [Display(Name = "Last Name")]
+            [StringLength(50, ErrorMessage = "Last name must not exceed 50 characters"), MinLength(6)]
+            public string LastName { get; set; }
+            
+
+            [Required]
+            [Display(Name = "Gender")]
+            [StringLength(50, ErrorMessage = "Gender must not exceed 50 characters"), MinLength(6)]
+            public string Gender { get; set; }
+            
+
+            [Required]
+            [Display(Name = "Last Name")]
+            [StringLength(50, ErrorMessage = "Last name must not exceed 50 characters"), MinLength(6)]
+            public string EmergencyContactName { get; set; }
+
+            [Required]
+            [Display(Name = "Last Name")]
+            [StringLength(50, ErrorMessage = "Last name must not exceed 50 characters"), MinLength(6)]
+            public string EmergencyContactNo { get; set; }
+            
+            [Required]
+            [Display(Name = "Last Name")]
+            [StringLength(50, ErrorMessage = "Last name must not exceed 50 characters"), MinLength(6)]
+            public string IDNumber { get; set; }
+
+            [Required]
+            [Display(Name = "Last Name")]
+            [StringLength(50, ErrorMessage = "Last name must not exceed 50 characters"), MinLength(6)]
+            public string DoB { get; set; }
+
+            ////[Required]
+            ////[Display(Name = "Last Name")]
+            ////[StringLength(50, ErrorMessage = "Last name must not exceed 50 characters"), MinLength(6)]
+            ////public int SuburbID { get; set; }
+
+
             //added username
             [Required]
             [Display(Name = "Username")]
