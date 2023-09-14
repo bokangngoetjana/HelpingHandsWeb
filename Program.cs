@@ -1,4 +1,5 @@
 using HelpingHands.Data;
+using HelpingHands.Repositories;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Build.Exceptions;
 using Microsoft.Data.SqlClient;
@@ -17,13 +18,15 @@ builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 //added AddRoles<IdentityRole>()
 //AddDefaultIdentity - AddIdentity and added IdentityRole
-builder.Services.AddIdentity<IdentityUser, IdentityRole>(options => options.SignIn.RequireConfirmedAccount = false)
+builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options => options.SignIn.RequireConfirmedAccount = false)
     .AddEntityFrameworkStores<ApplicationDbContext>()
     .AddDefaultUI()
     .AddDefaultTokenProviders();
 
 
 builder.Services.AddTransient<IDbConnection>(options => new SqlConnection(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+builder.Services.AddScoped<CityRepo>();
 
 
 builder.Services.AddControllersWithViews();

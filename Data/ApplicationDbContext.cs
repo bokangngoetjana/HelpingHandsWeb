@@ -1,4 +1,5 @@
 ﻿using HelpingHands.Models;
+using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
@@ -15,7 +16,7 @@ namespace HelpingHands.Data
     //        public string? EmergencyPerson { get; set; }
     //        public string? EmergencyContactNo { get; set; }
     //    }
-    public class ApplicationDbContext : IdentityDbContext
+    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)

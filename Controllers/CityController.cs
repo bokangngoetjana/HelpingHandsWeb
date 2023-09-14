@@ -11,9 +11,9 @@ namespace HelpingHands.Controllers
         {
             _city = city;
         }
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            var cities = _city.GetAllCitiesAsync();
+            var cities = await _city.GetAllCitiesAsync();
             return View(cities);
         }
     }
