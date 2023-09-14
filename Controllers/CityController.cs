@@ -1,18 +1,19 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using HelpingHands.Data;
+using HelpingHands.Repositories;
 
 namespace HelpingHands.Controllers
 {
     public class CityController : Controller
     {
-        private readonly ApplicationDbContext _context;
-        public CityController(ApplicationDbContext context)
+        private readonly CityRepo _city;
+        public CityController(CityRepo city)
         {
-            _context = context;
+            _city = city;
         }
         public IActionResult Index()
         {
-            var cities = _context.City.ToList();
+            var cities = _city.GetAllCitiesAsync();
             return View(cities);
         }
     }
