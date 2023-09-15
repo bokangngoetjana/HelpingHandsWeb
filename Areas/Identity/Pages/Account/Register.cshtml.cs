@@ -10,6 +10,7 @@ using System.Text;
 using System.Text.Encodings.Web;
 using System.Threading;
 using System.Threading.Tasks;
+using HelpingHands.Data;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -124,7 +125,7 @@ namespace HelpingHands.Areas.Identity.Pages.Account
             
 
             [Display(Name = "Emergency Contact Name")]
-            public string EmergencyContactName { get; set; }
+            public string EmergencyPerson { get; set; }
 
             [Required]
             [Display(Name = "Contact No")]
@@ -151,11 +152,7 @@ namespace HelpingHands.Areas.Identity.Pages.Account
             //[Display(Name = "Username")]
             //[StringLength(50, ErrorMessage = "Username must not exceed 50 characters"), MinLength (6)]
             //public string Username { get; set; }
-
-            ///ContactNo
-            [Required]
-            [StringLength(10, ErrorMessage = "Contact Nuber must be 10 numbers only",MinimumLength = 10)]
-            public string ContactNo { get; set; }
+          
             
             ///UserType (reserved for admin)
             ///Status = Active by default
